@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,700&display=swap')
+   
+body 
+   background: #483C6C
+   color: white
+   font-family: 'Roboto', sans-serif
+   box-sizing: border-box
+   overflow: hidden
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+  -webkit-appearance: none;
+  margin: 0;
+
+
+/* Firefox */
+input[type=number] 
+  -moz-appearance: textfield;
+
+
+.animation 
+   display: inline-block
+   animation: fromTop .4s
+   animation-iteration-count: 1
+   animation-fill-mode: forwards
+.not-animation 
+   display: inline-block
+   animation: toDown .4s
+   animation-iteration-count: 1
+   animation-fill-mode: forwards
+
+.rotate-front
+   transform: rotateY(180deg) !important
+.rotate-back 
+   transform: rotateY(360deg) !important
+
+.wrapper 
+   width: 100%
+   height: 100vh
+   position: relative
+   display: flex
+   justify-content: center
+   align-items: center
+   &-under 
+      width: 600px
+      min-height: 600px
+      // border: 1px solid #fff
+      position: relative
+   
+.card 
+   width: 320px
+   height: 200px
+   // border: 1px solid #fff
+   border-radius: 13px
+   margin: 30px auto
+   position: relative
+   transition: 1s ease
+   z-index: 10
+   perspective: 1000px
+   animation: fromTop .75s 1 forwards
+   // margin: 0 auto
+   &-front, &-back
+      position: absolute
+      top: 0
+      left: 0
+      background: url('./img/cosmos.jpg') no-repeat 50% 50%
+      background-size: cover
+      width: 100%
+      height: 100%
+      border-radius: 13px
+      backface-visibility: hidden
+      transition: 1s ease
+
+   &:hover &-front 
+      transform: rotateY(180deg)
+   &:hover &-back 
+      transform: rotateY(360deg)
+   &-front 
+      &__wrapper 
+         position: relative
+         z-index: 2
+         padding: 15px
+      &-head 
+         display: flex
+         justify-content: space-between
+         align-items: center
+         &__block 
+            font-weight: 700
+            font-size: 24px
+            letter-spacing: 3px
+            text-transform: uppercase
+            img 
+               width: 50px 
+               height: auto
+               filter: grayscale(100%)
+      &-main 
+         margin: 30px 0 0 0
+         font-weight: 700
+         font-size: 19px
+         letter-spacing: 3px
+         transition: .5s ease
+         position: relative
+         span 
+            transition: .5s ease
+            display: inline-block
+         span:nth-child(4n)
+            margin: 0 13px 0 0
+      &-footer 
+         display: flex
+         justify-content: space-between
+         padding: 40px 0 0 0
+         &__block 
+            display: flex
+            flex-flow: column nowrap
+            .block_light 
+               font-size: 12px
+               font-weight: 300
+               letter-spacing: 2px
+
+      &:after 
+         content: '\A'
+         position: absolute
+         top: 0
+         bottom: 0
+         left: 0
+         right: 0
+         background: rgba(0,0,0,0.43) 
+         transition: all 0.5s
+         -webkit-transition: all 0.5s
+         -moz-transition: all 0.5s
+         border-radius: 13px
+         z-index: 1
+   &-back 
+      transform: rotateY(180deg)
+      &__wrapper 
+         position: relative
+         z-index: 2
+         border-radius: 15px
+      &-head 
+         height: 35px 
+         margin: 30px 0 0 0
+         background: #000
+      &-main 
+         padding: 15px
+         text-align: end
+
+         &-title
+            font-size: 14px
+            letter-spacing: 1px
+            margin: 0 10px 0 0
+         &-field
+            background: #fff
+            color: black
+            padding: 10px 20px
+      &-footer 
+         padding: 0 15px
+         text-align: end
+         font-size: 20px
+         letter-spacing: 2px
+         font-weight: 700
+         text-transform: uppercase
+         margin: 0 0 20px 0
+      &:after 
+         content: '\A'
+         position: absolute
+         top: 0
+         bottom: 0
+         left: 0
+         right: 0
+         background: rgba(0,0,0,0.43) 
+         transition: all 0.5s
+         -webkit-transition: all 0.5s
+         -moz-transition: all 0.5s
+         border-radius: 13px
+         z-index: 1
+
+.form 
+   position: absolute
+   top: 200px
+   left: 0
+   // padding: 30px
+   border: 1px solid #fff
+   border-radius: 15px
+   background: #fff
+   height: 60vh
+   width: 100%
+   color: black
+   animation: fromDown 1s 1 forwards
+   &-wrapper 
+      display: flex
+      flex-flow: column nowrap
+      padding: 30px
+   &-block 
+      display: flex
+      flex-flow: column nowrap
+      margin: 0 0 15px 0
+      label 
+         font-size: 12px
+
+      input 
+         padding: 10px
+         font-size: 14px
+         letter-spacing: 1px
+   &-block__bottom 
+      display: flex
+      justify-content: space-between
+
+@keyframes fromTop
+   0%
+      opacity: 0
+      transform: translateY(-100%)
+   100% 
+      transform: translateY(0)
+
+@keyframes fromDown
+   0%
+      opacity: 0
+      transform: translateY(100%)
+   100% 
+      transform: translateY(0)         
+
+
