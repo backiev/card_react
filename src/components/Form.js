@@ -11,7 +11,11 @@ const Form = () => {
    const [cvvInput, setCvvInput] = useState('');
    const today = new Date();
    const asd = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
-   const [dateInput, setDateInput] = useState(asd);
+   const [dateInput, setDateInput] = useState('');
+
+   const keyPressed = (event) => {
+      console.log();
+   }
 
 
    const inputChecker = (event, setState, feature, numMax) => {
@@ -36,6 +40,7 @@ const Form = () => {
 
    const numHandler = (event) => {
       inputChecker(event, setNumberInput, newNum, 16);
+
    }
    const nameHandler = (event) => {
       inputChecker(event, setNameInput, newName, 16);
@@ -70,7 +75,7 @@ const Form = () => {
             <div className="form-wrapper">
                <div className="form-block">
                   <label htmlFor="num">Number of Card</label>
-                  <input type="number" id="num" value={numberInput} onChange={numHandler}/>
+                  <input type="number" id="num" value={numberInput} onKeyPress={keyPressed} onChange={numHandler}/>
                </div>
                <div className="form-block">
                   <label htmlFor="holder">Card Holders</label>

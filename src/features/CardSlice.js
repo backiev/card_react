@@ -5,7 +5,6 @@ const newReducerWrapper = (items, defaultValue, values) => {
   
   Object.keys(values).map(item => {
     const payload = items.payload[item];
-
     values[item].animate = false;
 
     if (values[item].value !== payload && payload) {
