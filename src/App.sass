@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,700&display=swap')
-   
+
+
+// VARS 
+$borderR: 13px;
+$fntS: 12px;
+$margin: 15px;
+$padding: 15px;
+$white: #ffffff;
+$black: #000000;
+$purple: tomato;
+
+// VARS /
+
+
+
+// DEFAULT STYLES
 body 
-   background: #483C6C
-   color: white
+   background: $purple
+   color: $white
    font-family: 'Roboto', sans-serif
    box-sizing: border-box
    overflow: hidden
@@ -13,11 +28,9 @@ input::-webkit-inner-spin-button
   -webkit-appearance: none;
   margin: 0;
 
-
 /* Firefox */
 input[type=number] 
   -moz-appearance: textfield;
-
 
 .animation 
    display: inline-block
@@ -45,21 +58,19 @@ input[type=number]
    &-under 
       width: 600px
       min-height: 600px
-      // border: 1px solid #fff
       position: relative
+// DEFAULT STYLES /
    
 .card 
    width: 320px
    height: 200px
-   // border: 1px solid #fff
-   border-radius: 13px
-   margin: 30px auto
+   border-radius: $borderR
+   margin: $margin*2 auto
    position: relative
    transition: 1s ease
    z-index: 10
    perspective: 1000px
    animation: fromTop .75s 1 forwards
-   // margin: 0 auto
    &-front, &-back
       position: absolute
       top: 0
@@ -68,53 +79,53 @@ input[type=number]
       background-size: cover
       width: 100%
       height: 100%
-      border-radius: 13px
+      border-radius: $borderR
       backface-visibility: hidden
       transition: 1s ease
 
-   &:hover &-front 
+   &:hover &-front
       transform: rotateY(180deg)
-   &:hover &-back 
+   &:hover &-back
       transform: rotateY(360deg)
-   &-front 
-      &__wrapper 
+   &-front
+      &__wrapper
          position: relative
          z-index: 2
-         padding: 15px
-      &-head 
+         padding: $padding
+      &-head
          display: flex
          justify-content: space-between
          align-items: center
-         &__block 
+         &__block
             font-weight: 700
-            font-size: 24px
+            font-size: $fntS*2
             letter-spacing: 3px
             text-transform: uppercase
-            img 
+            img
                width: 50px 
                height: auto
                filter: grayscale(100%)
-      &-main 
-         margin: 30px 0 0 0
+      &-main
+         margin: $margin*2 0 0 0
          font-weight: 700
-         font-size: 19px
+         font-size: $fntS*1.5
          letter-spacing: 3px
          transition: .5s ease
          position: relative
-         span 
+         span
             transition: .5s ease
             display: inline-block
          span:nth-child(4n)
-            margin: 0 13px 0 0
-      &-footer 
+            margin: 0 $margin 0 0
+      &-footer
          display: flex
          justify-content: space-between
-         padding: 40px 0 0 0
-         &__block 
+         padding: $padding*2.5 0 0 0
+         &__block
             display: flex
             flex-flow: column nowrap
-            .block_light 
-               font-size: 12px
+            .block_light
+               font-size: $fntS
                font-weight: 300
                letter-spacing: 2px
 
@@ -129,38 +140,37 @@ input[type=number]
          transition: all 0.5s
          -webkit-transition: all 0.5s
          -moz-transition: all 0.5s
-         border-radius: 13px
+         border-radius: $borderR
          z-index: 1
    &-back 
       transform: rotateY(180deg)
       &__wrapper 
          position: relative
          z-index: 2
-         border-radius: 15px
+         border-radius: $borderR
       &-head 
          height: 35px 
-         margin: 30px 0 0 0
+         margin-top: $margin*2
          background: #000
       &-main 
          padding: 15px
          text-align: end
-
          &-title
-            font-size: 14px
+            font-size: $fntS
             letter-spacing: 1px
-            margin: 0 10px 0 0
+            margin: 0 $margin 0 0
          &-field
-            background: #fff
+            background: $white
             color: black
             padding: 10px 20px
       &-footer 
-         padding: 0 15px
+         padding: 0 $padding
          text-align: end
-         font-size: 20px
+         font-size: $fntS*1.5
          letter-spacing: 2px
          font-weight: 700
          text-transform: uppercase
-         margin: 0 0 20px 0
+         margin: 0 0 $margin 0
       &:after 
          content: '\A'
          position: absolute
@@ -172,7 +182,7 @@ input[type=number]
          transition: all 0.5s
          -webkit-transition: all 0.5s
          -moz-transition: all 0.5s
-         border-radius: 13px
+         border-radius: $borderR
          z-index: 1
 
 .form 
@@ -180,27 +190,26 @@ input[type=number]
    top: 200px
    left: 0
    // padding: 30px
-   border: 1px solid #fff
-   border-radius: 15px
-   background: #fff
+   border: 1px solid $white
+   border-radius: $borderR
+   background: $white
    height: 60vh
    width: 100%
-   color: black
+   color: $black
    animation: fromDown 1s 1 forwards
    &-wrapper 
       display: flex
       flex-flow: column nowrap
-      padding: 30px
+      padding: $padding*2
    &-block 
       display: flex
       flex-flow: column nowrap
-      margin: 0 0 15px 0
+      margin-bottom: $margin 
       label 
-         font-size: 12px
-
+         font-size: $fntS
       input 
          padding: 10px
-         font-size: 14px
+         font-size: $fntS+2
          letter-spacing: 1px
    &-block__bottom 
       display: flex

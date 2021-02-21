@@ -13,7 +13,6 @@ function App() {
           <Card />
           <Form />
         </div>
-        
       </div>
     </>
   );
